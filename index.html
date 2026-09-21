@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的个人网站</title>
+    <!-- 引入Tailwind CSS，无需下载额外文件 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入Font Awesome图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 配置自定义颜色 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#1E40AF',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .section-padding {
+                padding: 5rem 1.5rem;
+            }
+            html {
+                scroll-behavior: smooth;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+    <!-- 导航栏 -->
+    <nav class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold text-primary">Jakio</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="hover:text-primary transition-colors">首页</a>
+                <a href="#about" class="hover:text-primary transition-colors">关于我</a>
+                <a href="#works" class="hover:text-primary transition-colors">我的作品</a>
+                <a href="#contact" class="hover:text-primary transition-colors">联系我</a>
+            </div>
+            <!-- 移动端菜单按钮 -->
+            <button class="md:hidden text-gray-700" id="menuBtn">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+        <!-- 移动端菜单 -->
+        <div class="md:hidden hidden bg-white border-t" id="mobileMenu">
+            <div class="flex flex-col px-4 py-3 space-y-3">
+                <a href="#home" class="py-2 hover:text-primary transition-colors">首页</a>
+                <a href="#about" class="py-2 hover:text-primary transition-colors">关于我</a>
+                <a href="#works" class="py-2 hover:text-primary transition-colors">我的作品</a>
+                <a href="#contact" class="py-2 hover:text-primary transition-colors">联系我</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 首页英雄区 -->
+    <section id="home" class="pt-32 pb-20 bg-gradient-to-br from-blue-50 to-indigo-100 section-padding">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
+            <div class="md:w-1/2 space-y-6">
+                <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold leading-tight text-shadow">
+                    你好，我是<br><span class="text-primary">Jakio</span>
+                </h1>
+                <p class="text-lg text-gray-600 leading-relaxed">
+                    一个织布机修工
+                </p>
+                <div class="flex flex-wrap gap-4 pt-2">
+                    <a href="#works" class="bg-primary hover:bg-secondary text-white px-6 py-3 rounded-lg font-medium transition-all hover:shadow-lg transform hover:-translate-y-1">
+                        查看作品
+                    </a>
+                    <a href="#contact" class="border border-primary text-primary hover:bg-primary/5 px-6 py-3 rounded-lg font-medium transition-all">
+                        联系我
+                    </a>
+                </div>
+                <div class="flex space-x-4 pt-4">
+                    <a href="#" class="text-gray-600 hover:text-primary text-xl transition-colors">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-primary text-xl transition-colors">
+                        <i class="fab fa-weibo"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-primary text-xl transition-colors">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-primary text-xl transition-colors">
+                        <i class="fab fa-weixin"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2">
+                <!-- 替换成你的头像图片 -->
+                <div class="w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-r from-primary to-indigo-400 p-1 mx-auto shadow-xl">
+                    <img src="https://picsum.photos/id/1005/400/400" alt="个人头像" class="w-full h-full object-cover rounded-full">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于我区域 -->
+    <section id="about" class="section-padding bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">关于我</h2>
+                <div class="w-20 h-1 bg-primary mx-auto rounded-full"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        这里可以详细介绍你的背景、经历、专业领域。比如：
+                    </p>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        拥有5年互联网产品设计经验，曾服务于多家知名科技公司，擅长从用户需求出发打造兼具美感与实用性的产品。热爱生活，喜欢在旅行中记录灵感。
+                    </p>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        目前可承接品牌设计、网站设计、插画创作等项目，欢迎有需求的朋友联系合作。
+                    </p>
+                    <h3 class="text-xl font-semibold mb-4">我的技能</h3>
+                    <div class="space-y-3">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>UI/UX 设计</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-primary h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>前端开发</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-primary h-2 rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>插画创作</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-primary h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>品牌设计</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-primary h-2 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-blue-50 p-6 rounded-xl text-center hover:shadow-md transition-shadow">
+                        <i class="fas fa-briefcase text-primary text-3xl mb-3"></i>
+                        <h4 class="font-semibold text-lg mb-2">5年+</h4>
+                        <p class="text-gray-600 text-sm">行业经验</p>
+                    </div>
+                    <div class="bg-blue-50 p-6 rounded-xl text-center hover:shadow-md transition-shadow">
+                        <i class="fas fa-project-diagram text-primary text-3xl mb-3"></i>
+                        <h4 class="font-semibold text-lg mb-2">100+</h4>
+                        <p class="text-gray-600 text-sm">完成项目</p>
+                    </div>
+                    <div class="bg-blue-50 p-6 rounded-xl text-center hover:shadow-md transition-shadow">
+                        <i class="fas fa-users text-primary text-3xl mb-3"></i>
+                        <h4 class="font-semibold text-lg mb-2">80+</h4>
+                        <p class="text-gray-600 text-sm">合作客户</p>
+                    </div>
+                    <div class="bg-blue-50 p-6 rounded-xl text-center hover:shadow-md transition-shadow">
+                        <i class="fas fa-award text-primary text-3xl mb-3"></i>
+                        <h4 class="font-semibold text-lg mb-2">15+</h4>
+                        <p class="text-gray-600 text-sm">行业奖项</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 作品展示区域 -->
+    <section id="works" class="section-padding bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">我的作品</h2>
+                <div class="w-20 h-1 bg-primary mx-auto rounded-full mb-4"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">这里展示我的部分代表作品，点击可查看详情</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- 作品卡片1，替换图片和链接 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all transform hover:-translate-y-2 group">
+                    <div class="h-56 overflow-hidden">
+                        <img src="https://picsum.photos/id/0/600/400" alt="作品1" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs text-primary font-medium bg-blue-50 px-3 py-1 rounded-full">UI设计</span>
+                        <h3 class="text-xl font-semibold mt-3 mb-2">电商APP界面设计</h3>
+                        <p class="text-gray-600 text-sm mb-4">为某知名电商平台设计的新版移动端界面，提升了30%的用户转化率。</p>
+                        <a href="#" class="text-primary font-medium inline-flex items-center">
+                            查看详情 <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- 作品卡片2 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all transform hover:-translate-y-2 group">
+                    <div class="h-56 overflow-hidden">
+                        <img src="https://picsum.photos/id/180/600/400" alt="作品2" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs text-primary font-medium bg-blue-50 px-3 py-1 rounded-full">品牌设计</span>
+                        <h3 class="text-xl font-semibold mt-3 mb-2">咖啡品牌视觉系统</h3>
+                        <p class="text-gray-600 text-sm mb-4">为新创咖啡品牌打造的全套视觉识别系统，包含logo、包装、周边设计。</p>
+                        <a href="#" class="text-primary font-medium inline-flex items-center">
+                            查看详情 <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- 作品卡片3 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all transform hover:-translate-y-2 group">
+                    <div class="h-56 overflow-hidden">
+                        <img src="https://picsum.photos/id/20/600/400" alt="作品3" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs text-primary font-medium bg-blue-50 px-3 py-1 rounded-full">网页设计</span>
+                        <h3 class="text-xl font-semibold mt-3 mb-2">企业官网改版</h3>
+                        <p class="text-gray-600 text-sm mb-4">为科技公司完成官网整体改版，采用现代化设计语言，提升品牌形象。</p>
+                        <a href="#" class="text-primary font-medium inline-flex items-center">
+                            查看详情 <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- 作品卡片4 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all transform hover:-translate-y-2 group">
+                    <div class="h-56 overflow-hidden">
+                        <img src="https://picsum.photos/id/96/600/400" alt="作品4" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs text-primary font-medium bg-blue-50 px-3 py-1 rounded-full">插画设计</span>
+                        <h3 class="text-xl font-semibold mt-3 mb-2">城市主题系列插画</h3>
+                        <p class="text-gray-600 text-sm mb-4">为城市文旅项目创作的系列插画，展现不同城市的特色文化与风貌。</p>
+                        <a href="#" class="text-primary font-medium inline-flex items-center">
+                            查看详情 <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- 作品卡片5 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all transform hover:-translate-y-2 group">
+                    <div class="h-56 overflow-hidden">
+                        <img src="https://picsum.photos/id/160/600/400" alt="作品5" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs text-primary font-medium bg-blue-50 px-3 py-1 rounded-full">小程序</span>
+                        <h3 class="text-xl font-semibold mt-3 mb-2">社区服务小程序</h3>
+                        <p class="text-gray-600 text-sm mb-4">为社区设计开发的便民服务小程序，整合报修、缴费、通知等功能。</p>
+                        <a href="#" class="text-primary font-medium inline-flex items-center">
+                            查看详情 <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- 作品卡片6 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all transform hover:-translate-y-2 group">
+                    <div class="h-56 overflow-hidden">
+                        <img src="https://picsum.photos/id/119/600/400" alt="作品6" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs text-primary font-medium bg-blue-50 px-3 py-1 rounded-full">平面设计</span>
+                        <h3 class="text-xl font-semibold mt-3 mb-2">活动视觉设计</h3>
+                        <p class="text-gray-600 text-sm mb-4">为行业峰会设计的全套活动物料，包含主视觉、海报、宣传册等。</p>
+                        <a href="#" class="text-primary font-medium inline-flex items-center">
+                            查看详情 <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我区域 -->
+    <section id="contact" class="section-padding bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">联系我</h2>
+                <div class="w-20 h-1 bg-primary mx-auto rounded-full mb-4"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">有合作需求或想交个朋友，欢迎通过以下方式联系我</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="space-y-6">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-envelope text-primary"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-1">邮箱</h3>
+                            <p class="text-gray-600">your-email@example.com</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-phone text-primary"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-1">电话/微信</h3>
+                            <p class="text-gray-600">132-2223-0530</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-map-marker-alt text-primary"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-1">地址</h3>
+                            <p class="text-gray-600">中国 · 泗阳</p>
+                        </div>
+                    </div>
+                    <div class="flex space-x-4 pt-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition-colors">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition-colors">
+                            <i class="fab fa-weibo"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                <form class="space-y-4 bg-gray-50 p-8 rounded-xl">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">姓名</label>
+                        <input type="text" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all" placeholder="请输入您的姓名">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">邮箱</label>
+                        <input type="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all" placeholder="请输入您的邮箱">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">留言内容</label>
+                        <textarea rows="4" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all resize-none" placeholder="请输入您想说的内容"></textarea>
+                    </div>
+                    <button type="button" class="w-full bg-primary hover:bg-secondary text-white py-3 rounded-lg font-medium transition-all hover:shadow-lg">
+                        发送消息
+                    </button>
+                    <p class="text-xs text-gray-500 text-center mt-2">
+                        提示：表单需要配置后端服务才能接收消息，初期可直接用邮箱或微信联系我
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-900 text-white py-10">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <p class="mb-4">© 2026 Jakio. All Rights Reserved.</p>
+            <p class="text-gray-400 text-sm">使用 GitHub Pages 免费托管</p>
+        </div>
+    </footer>
+
+    <script>
+        // 移动端菜单切换
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 点击移动端菜单链接后关闭菜单
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // 滚动时导航栏效果
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('py-2', 'shadow');
+                nav.classList.remove('py-4');
+            } else {
+                nav.classList.add('py-4');
+                nav.classList.remove('py-2', 'shadow');
+            }
+        });
+    </script>
+</body>
+</html><!--27964189002395614730092122-->
